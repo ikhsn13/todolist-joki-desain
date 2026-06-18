@@ -5,20 +5,6 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [
 		tailwindcss(),
-		sveltekit({
-			compilerOptions: {
-				runes: ({ filename }) =>
-					filename.split(/[/\\]/).includes('node_modules')
-						? undefined
-						: true
-			},
-
-			typescript: {
-				config: (config) => ({
-					...config,
-					include: [...config.include, '../drizzle.config.js']
-				})
-			}
-		})
+		sveltekit()
 	]
 });
